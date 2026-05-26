@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lygia Friend</title>
+<meta name="description" content="Lygia Friend. Senior Product Manager, Visa. Global commercial cards, cross-border payments, AI in financial services.">
+<meta property="og:title" content="Lygia Friend">
+<meta property="og:description" content="Senior Product Manager, Visa. Building the rails that move money across borders.">
+<meta property="og:type" content="profile">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --ink: #000000;
+    --ink-2: #1A1A1A;
+    --ink-soft: #555555;
+    --ink-mute: #888888;
+    --rule: #000000;
+    --rule-soft: rgba(0, 0, 0, 0.12);
+    --rule-faint: rgba(0, 0, 0, 0.06);
+    --crimson: #D7263D;
+    --crimson-deep: #A8001E;
+    --gold: #B8862A;
+    --gold-soft: #C9A453;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Geist', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.45;
+    font-weight: 400;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--ink); color: var(--bg); }
+
+  .mono { font-family: 'Geist Mono', monospace; }
+  .serif { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; }
+
+  /* === HEADER === */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.6rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px) saturate(1.2);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    transition: padding 0.3s ease, border-color 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+  header.scrolled {
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+    border-bottom-color: var(--rule);
+  }
+
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 0.15rem;
+  }
+  .brand-mark {
+    font-family: 'Geist', sans-serif;
+    font-style: normal;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    color: var(--crimson);
+    margin-left: 0.6rem;
+    text-transform: uppercase;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .header-nav {
+    display: flex;
+    gap: 1.75rem;
+    align-items: center;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .header-nav a {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+  .header-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 1px;
+    background: var(--crimson);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .header-nav a:hover { color: var(--crimson); }
+  .header-nav a:hover::after { transform: scaleX(1); }
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+  }
+  .lang-toggle button {
+    background: none;
+    border: none;
+    color: var(--ink-mute);
+    padding: 0.25rem 0;
+    cursor: pointer;
+    font: inherit;
+    letter-spacing: inherit;
+    transition: color 0.2s ease;
+  }
+  .lang-toggle button:hover { color: var(--ink); }
+  .lang-toggle button.active { color: var(--crimson); }
+  .lang-toggle .sep { color: var(--rule-soft); user-select: none; }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    padding: 7rem 2.5rem 4rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 4rem;
+    align-items: stretch;
+    max-width: 1500px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-weight: 500;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--crimson);
+  }
+
+  .hero-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(4rem, 11vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    color: var(--ink);
+    margin-bottom: 2.5rem;
+  }
+  .hero-name .ly {
+    display: block;
+  }
+  .hero-name .friend {
+    display: block;
+    font-style: italic;
+    color: var(--ink);
+    margin-top: -0.05em;
+    padding-left: 0.6em;
+  }
+
+  .hero-positioning {
+    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    line-height: 1.4;
+    color: var(--ink-2);
+    max-width: 42ch;
+    margin-bottom: 3rem;
+    font-weight: 400;
+    letter-spacing: -0.008em;
+  }
+  .hero-positioning .gold {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--ink);
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .hero-meta-item .label {
+    color: var(--ink-mute);
+    font-size: 0.62rem;
+  }
+  .hero-meta-item .value {
+    color: var(--ink);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* Hero visual — dominant single photo */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+    width: 100%;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .hero-visual .main-photo {
+    position: absolute;
+    inset: 0;
+    background-image: url('images/lygia-main.jpg');
+    background-size: cover;
+    background-position: center 20%;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hero-visual:hover .main-photo {
+    transform: scale(1.03);
+  }
+  .hero-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.35) 100%);
+  }
+
+  /* Overlay caption on hero photo */
+  .hero-caption {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+  .hero-caption .left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .hero-caption .right {
+    text-align: right;
+    color: var(--gold-soft);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    text-transform: none;
+    font-size: 0.95rem;
+    letter-spacing: 0;
+  }
+
+  /* Decorative crimson hairline next to photo */
+  .hero-rule {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -2rem;
+    width: 1px;
+    background: var(--crimson);
+    transform-origin: top;
+    animation: ruleIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+    transform: scaleY(0);
+  }
+  @keyframes ruleIn {
+    to { transform: scaleY(1); }
+  }
+
+  /* === FOREVER-MARK SECTION === */
+  /* Statement strip between hero and rest */
+  .statement {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 1.4rem 2.5rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .statement-track {
+    display: flex;
+    gap: 4rem;
+    white-space: nowrap;
+    animation: ticker 38s linear infinite;
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    letter-spacing: -0.005em;
+  }
+  .statement-track span {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 4rem;
+  }
+  .statement-track .dot {
+    color: var(--crimson);
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  .statement-track em {
+    font-style: italic;
+    color: var(--gold-soft);
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* === SECTIONS === */
+  .container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1.2rem;
+    margin-bottom: 3rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .section-head .num {
+    color: var(--crimson);
+    font-weight: 600;
+  }
+  .section-head .line {
+    flex: 1;
+    height: 1px;
+    background: var(--rule-soft);
+  }
+  .section-head .tag {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  h2.section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    max-width: 18ch;
+    margin-bottom: 1rem;
+  }
+  h2.section-title .italic {
+    font-style: italic;
+    color: var(--ink);
+  }
+  h2.section-title .gold {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  /* === ABOUT === */
+  .about {
+    padding: 8rem 0;
+    border-top: 1px solid var(--ink);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .about-body {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+    max-width: 58ch;
+  }
+  .about-body p {
+    margin-bottom: 1.5rem;
+  }
+  .about-body p:last-child { margin-bottom: 0; }
+  .about-body p:first-of-type::first-letter {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 4.5rem;
+    line-height: 0.85;
+    float: left;
+    margin: 0.1em 0.15em 0 0;
+    color: var(--crimson);
+  }
+  .about-body strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .about-body em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+    font-size: 1.15rem;
+  }
+
+  /* === STATS BAND === */
+  .stats {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 6rem 0;
+  }
+  .stats .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .stat {
+    padding: 0 2.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .stat:first-child { padding-left: 0; }
+  .stat:last-child { border-right: none; padding-right: 0; }
+
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
+    color: var(--bg);
+  }
+  .stat-num .accent { color: var(--crimson); font-style: italic; }
+  .stat-num .gold-acc { color: var(--gold-soft); font-style: italic; }
+  .stat-num .small {
+    font-size: 0.4em;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    margin-left: 0.05em;
+    font-weight: 300;
+  }
+
+  .stat-label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.5;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .stat-label .em {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+  }
+
+  /* === QUOTE === */
+  .quote-section {
+    padding: 10rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  .quote-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .quote-mark {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 12rem;
+    color: var(--crimson);
+    line-height: 0.7;
+    margin-bottom: 1rem;
+    display: block;
+    opacity: 0.95;
+  }
+
+  .quote-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 3rem;
+  }
+  .quote-text .italic-gold {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .quote-text .italic-crimson {
+    font-style: italic;
+    color: var(--crimson);
+  }
+
+  .quote-attribution {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .quote-attribution::before {
+    content: '— ';
+    color: var(--crimson);
+  }
+
+  /* Big background L mark */
+  .quote-monogram {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(20rem, 50vw, 40rem);
+    color: var(--ink);
+    opacity: 0.025;
+    line-height: 1;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* === FOCUS === */
+  .focus {
+    padding: 8rem 0;
+  }
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--ink);
+  }
+  .focus-item {
+    padding: 3rem 2.5rem 3rem 0;
+    border-right: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--ink);
+    position: relative;
+    transition: background 0.4s ease;
+  }
+  .focus-item:hover {
+    background: rgba(215, 38, 61, 0.02);
+  }
+  .focus-item:last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+  .focus-item:not(:first-child) { padding-left: 2.5rem; }
+
+  .focus-item-num {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--crimson);
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+  }
+
+  .focus-item h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 1.7rem;
+    line-height: 1.1;
+    letter-spacing: -0.018em;
+    margin-bottom: 1.25rem;
+    color: var(--ink);
+  }
+  .focus-item h3 .italic {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .focus-item p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  .focus-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule-faint);
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    width: 100%;
+  }
+  .focus-tag .gold-dot {
+    width: 4px; height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  /* === ADDITIONAL VISUAL BAND - Photos === */
+  .gallery {
+    padding: 0;
+    background: var(--bg);
+  }
+  .gallery-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .gallery-tile {
+    aspect-ratio: 4/5;
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .gallery-tile .photo-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .gallery-tile:hover .photo-bg { transform: scale(1.04); }
+  .gallery-tile.nyc .photo-bg {
+    background-image: url('images/lygia-nyc.jpg');
+    background-position: center top;
+  }
+  .gallery-tile.chamonix .photo-bg {
+    background-image: url('images/lygia-chamonix.jpg');
+    background-position: center 30%;
+  }
+  .gallery-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4) 100%);
+  }
+  .gallery-caption {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .gallery-caption .title {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .gallery-caption .meta {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+  }
+
+  /* === WRITING === */
+  .writing {
+    padding: 8rem 0;
+    border-top: 1px solid var(--ink);
+  }
+  .writing-head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .writing-sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-soft);
+    font-size: 1.15rem;
+    max-width: 32ch;
+    line-height: 1.45;
+  }
+
+  .writing-list {
+    list-style: none;
+    border-top: 1px solid var(--ink);
+  }
+  .writing-list li {
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .writing-list a {
+    display: grid;
+    grid-template-columns: 110px 1fr auto auto;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 2rem 0;
+    text-decoration: none;
+    color: var(--ink);
+    transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+  .writing-list a::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--crimson);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease, left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .writing-list a:hover {
+    padding-left: 1.5rem;
+  }
+  .writing-list a:hover::before {
+    opacity: 1;
+    left: 0;
+  }
+
+  .writing-date {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .writing-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .writing-title .italic {
+    font-style: italic;
+  }
+  .writing-tag {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--gold);
+  }
+  .writing-arrow {
+    color: var(--ink-mute);
+    transition: color 0.25s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    font-size: 1.2rem;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+  }
+  .writing-list a:hover .writing-arrow {
+    color: var(--crimson);
+    transform: translate(4px, -4px);
+  }
+
+  /* === CONTACT === */
+  .contact {
+    padding: 10rem 0 8rem;
+    text-align: center;
+    border-top: 1px solid var(--ink);
+    background: var(--bg);
+    position: relative;
+  }
+
+  .contact h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 3rem;
+    color: var(--ink);
+  }
+  .contact h2 .italic-crimson {
+    font-style: italic;
+    color: var(--crimson);
+  }
+  .contact h2 .italic-gold {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Geist', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 1.1rem 2rem;
+    border: 1px solid var(--ink);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--ink);
+    transform: translateX(-101%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+  }
+  .contact-link:hover::before { transform: translateX(0); }
+  .contact-link:hover {
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  .contact-link span { position: relative; z-index: 1; }
+  .contact-link .arrow {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .contact-link:hover .arrow {
+    transform: translate(4px, -4px);
+  }
+
+  /* === FOOTER === */
+  footer {
+    padding: 3rem 2.5rem;
+    border-top: 1px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 1500px;
+    margin: 0 auto;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  footer a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--crimson); }
+  .footer-meta {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .footer-flag {
+    color: var(--crimson);
+    font-weight: 600;
+  }
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  /* === ANIMATIONS === */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .fade-up.in { opacity: 1; transform: translateY(0); }
+
+  .hero-text > * {
+    animation: heroIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  .hero-text > *:nth-child(1) { animation-delay: 0.15s; }
+  .hero-text > *:nth-child(2) { animation-delay: 0.3s; }
+  .hero-text > *:nth-child(3) { animation-delay: 0.45s; }
+  .hero-text > *:nth-child(4) { animation-delay: 0.6s; }
+
+  .hero-visual {
+    animation: visualIn 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+  @keyframes visualIn { to { opacity: 1; transform: scale(1); } }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 960px) {
+    header { padding: 1.1rem 1.25rem; }
+    .header-nav { display: none; }
+    .header-right { gap: 1rem; }
+
+    .container, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+
+    .hero {
+      padding: 6rem 1.25rem 3rem;
+      gap: 2.5rem;
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    .hero-visual {
+      order: -1;
+      aspect-ratio: 4/5;
+      max-width: 100%;
+    }
+    .hero-rule { display: none; }
+    .hero-meta { gap: 1rem 2rem; }
+
+    .statement { padding: 1rem 1.25rem; }
+    .statement-track { font-size: 0.95rem; }
+
+    .about { padding: 5rem 0; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+    .stats { padding: 4rem 0; }
+    .stats .container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem 1rem;
+    }
+    .stat {
+      padding: 0 !important;
+      border-right: none !important;
+    }
+
+    .quote-section { padding: 6rem 0; }
+    .quote-mark { font-size: 7rem; }
+
+    .focus { padding: 5rem 0; }
+    .focus-grid { grid-template-columns: 1fr; }
+    .focus-item {
+      padding: 2rem 0 !important;
+      border-right: none;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .focus-item:last-child { border-bottom: none; }
+
+    .gallery-row { grid-template-columns: 1fr; }
+
+    .writing { padding: 5rem 0; }
+    .writing-list a {
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      padding: 1.5rem 0;
+    }
+    .writing-list a:hover { padding-left: 0; }
+    .writing-list a::before { display: none; }
+    .writing-tag, .writing-arrow { display: none; }
+
+    .contact { padding: 5rem 0; }
+  }
+
+  [data-lang]:not(.lang-active) { display: none; }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <a href="#" class="brand">Lygia <span style="font-style: italic;">Friend</span><span class="brand-mark">LF</span></a>
+  <div class="header-right">
+    <nav class="header-nav">
+      <a href="#about">
+        <span data-lang="en" class="lang-active">About</span>
+        <span data-lang="pt">Sobre</span>
+        <span data-lang="es">Sobre</span>
+      </a>
+      <a href="#focus">
+        <span data-lang="en" class="lang-active">Focus</span>
+        <span data-lang="pt">Foco</span>
+        <span data-lang="es">Enfoque</span>
+      </a>
+      <a href="#writing">
+        <span data-lang="en" class="lang-active">Writing</span>
+        <span data-lang="pt">Escritos</span>
+        <span data-lang="es">Escritos</span>
+      </a>
+    </nav>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button data-set-lang="en" class="active">EN</button>
+      <span class="sep">/</span>
+      <button data-set-lang="pt">PT</button>
+      <span class="sep">/</span>
+      <button data-set-lang="es">ES</button>
+    </div>
+  </div>
+</header>
+
+<!-- ====================== HERO ====================== -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">
+      <span data-lang="en" class="lang-active">Senior Product Manager · Visa</span>
+      <span data-lang="pt">Senior Product Manager · Visa</span>
+      <span data-lang="es">Senior Product Manager · Visa</span>
+    </div>
+
+    <h1 class="hero-name">
+      <span class="ly">Lygia</span>
+      <span class="friend">Friend.</span>
+    </h1>
+
+    <p class="hero-positioning">
+      <span data-lang="en" class="lang-active">Product leader building the rails that move money across borders — and the <span class="gold">trust</span> that travels with it.</span>
+      <span data-lang="pt">Líder de produto construindo os trilhos que movem dinheiro através das fronteiras — e a <span class="gold">confiança</span> que viaja junto.</span>
+      <span data-lang="es">Líder de producto construyendo los rieles que mueven dinero a través de las fronteras — y la <span class="gold">confianza</span> que viaja con él.</span>
+    </p>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">
+          <span data-lang="en" class="lang-active">Based</span>
+          <span data-lang="pt">Sede</span>
+          <span data-lang="es">Base</span>
+        </span>
+        <span class="value">Charlotte, NC</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">
+          <span data-lang="en" class="lang-active">Languages</span>
+          <span data-lang="pt">Idiomas</span>
+          <span data-lang="es">Idiomas</span>
+        </span>
+        <span class="value">EN · PT · ES</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">
+          <span data-lang="en" class="lang-active">Passports</span>
+          <span data-lang="pt">Passaportes</span>
+          <span data-lang="es">Pasaportes</span>
+        </span>
+        <span class="value">BR · US · IT</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-rule"></div>
+    <div class="main-photo"></div>
+    <div class="hero-caption">
+      <div class="left">
+        <span>Charlotte · 2025</span>
+      </div>
+      <div class="right">Lygia.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== STATEMENT TICKER ====================== -->
+<section class="statement">
+  <div class="statement-track">
+    <span>
+      <span data-lang="en" class="lang-active">Cross-border payments</span>
+      <span data-lang="pt">Pagamentos transfronteiriços</span>
+      <span data-lang="es">Pagos transfronterizos</span>
+      <span class="dot">●</span>
+      <em>
+        <span data-lang="en" class="lang-active">Commercial cards</span>
+        <span data-lang="pt">Cartões corporativos</span>
+        <span data-lang="es">Tarjetas corporativas</span>
+      </em>
+      <span class="dot">●</span>
+      <span>
+        <span data-lang="en" class="lang-active">AI in financial services</span>
+        <span data-lang="pt">IA em serviços financeiros</span>
+        <span data-lang="es">IA en servicios financieros</span>
+      </span>
+      <span class="dot">●</span>
+      <em>
+        <span data-lang="en" class="lang-active">Multinational program design</span>
+        <span data-lang="pt">Desenho de programas multinacionais</span>
+        <span data-lang="es">Diseño de programas multinacionales</span>
+      </em>
+      <span class="dot">●</span>
+      <span>FX</span>
+      <span class="dot">●</span>
+      <em>B2B</em>
+      <span class="dot">●</span>
+    </span>
+    <span aria-hidden="true">
+      <span data-lang="en" class="lang-active">Cross-border payments</span>
+      <span data-lang="pt">Pagamentos transfronteiriços</span>
+      <span data-lang="es">Pagos transfronterizos</span>
+      <span class="dot">●</span>
+      <em>
+        <span data-lang="en" class="lang-active">Commercial cards</span>
+        <span data-lang="pt">Cartões corporativos</span>
+        <span data-lang="es">Tarjetas corporativas</span>
+      </em>
+      <span class="dot">●</span>
+      <span>
+        <span data-lang="en" class="lang-active">AI in financial services</span>
+        <span data-lang="pt">IA em serviços financeiros</span>
+        <span data-lang="es">IA en servicios financieros</span>
+      </span>
+      <span class="dot">●</span>
+      <em>
+        <span data-lang="en" class="lang-active">Multinational program design</span>
+        <span data-lang="pt">Desenho de programas multinacionais</span>
+        <span data-lang="es">Diseño de programas multinacionales</span>
+      </em>
+      <span class="dot">●</span>
+      <span>FX</span>
+      <span class="dot">●</span>
+      <em>B2B</em>
+      <span class="dot">●</span>
+    </span>
+  </div>
+</section>
+
+<!-- ====================== ABOUT ====================== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-head">
+          <span class="num">01</span>
+          <span class="tag">
+            <span data-lang="en" class="lang-active">About</span>
+            <span data-lang="pt">Sobre</span>
+            <span data-lang="es">Sobre</span>
+          </span>
+          <span class="line"></span>
+        </div>
+        <h2 class="section-title">
+          <span data-lang="en" class="lang-active">Three passports.<br>Two kids.<br><span class="italic">One</span> <span class="gold">through-line.</span></span>
+          <span data-lang="pt">Três passaportes.<br>Dois filhos.<br><span class="italic">Um</span> <span class="gold">fio condutor.</span></span>
+          <span data-lang="es">Tres pasaportes.<br>Dos hijos.<br><span class="italic">Un</span> <span class="gold">hilo conductor.</span></span>
+        </h2>
+      </div>
+
+      <div class="about-body">
+        <div data-lang="en" class="lang-active">
+          <p>Senior Product Manager at <strong>Visa</strong>, on the Global Commercial Solutions team — building the multinational card programs that the world's largest corporations rely on to move spend across markets.</p>
+          <p>Before Visa, nearly seven years at <strong>Bank of America</strong> — most recently as a VP-level product manager on the Transactional FX team, building products for clients across North and Latin America.</p>
+          <p>I grew up in Brazil. I work in three languages. I've spent my career on <em>cross-border payments, regulatory complexity, and the early arrival of AI in financial services.</em> Two kids and a Charlotte zip code complete the picture.</p>
+          <p>The short version: I build products that move money, and I take seriously the responsibility of doing it well.</p>
+        </div>
+        <div data-lang="pt">
+          <p>Senior Product Manager na <strong>Visa</strong>, no time de Global Commercial Solutions — construindo os programas de cartões multinacionais nos quais as maiores corporações do mundo confiam para movimentar gastos entre mercados.</p>
+          <p>Antes da Visa, quase sete anos no <strong>Bank of America</strong> — mais recentemente como VP de produto no time de Transactional FX, desenvolvendo produtos para clientes na América do Norte e na América Latina.</p>
+          <p>Cresci no Brasil. Trabalho em três idiomas. Construí minha carreira em <em>pagamentos transfronteiriços, complexidade regulatória e a chegada inicial da IA aos serviços financeiros.</em> Dois filhos e um CEP em Charlotte completam o quadro.</p>
+          <p>A versão curta: construo produtos que movimentam dinheiro, e levo a sério a responsabilidade de fazê-lo bem.</p>
+        </div>
+        <div data-lang="es">
+          <p>Senior Product Manager en <strong>Visa</strong>, en el equipo de Global Commercial Solutions — construyendo los programas de tarjetas multinacionales en los que las corporaciones más grandes del mundo confían para mover gastos entre mercados.</p>
+          <p>Antes de Visa, casi siete años en <strong>Bank of America</strong> — más recientemente como VP de producto en el equipo de Transactional FX, desarrollando productos para clientes en América del Norte y América Latina.</p>
+          <p>Crecí en Brasil. Trabajo en tres idiomas. He construido mi carrera en <em>pagos transfronterizos, complejidad regulatoria y la llegada temprana de la IA a los servicios financieros.</em> Dos hijos y un código postal en Charlotte completan el cuadro.</p>
+          <p>La versión corta: construyo productos que mueven dinero, y me tomo en serio la responsabilidad de hacerlo bien.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== STATS ====================== -->
+<section class="stats">
+  <div class="container">
+    <div class="stat fade-up">
+      <div class="stat-num"><span class="accent">12</span><span class="small">years</span></div>
+      <div class="stat-label">
+        <span data-lang="en" class="lang-active"><span class="em">Building products</span> across financial services and operations.</span>
+        <span data-lang="pt"><span class="em">Construindo produtos</span> em serviços financeiros e operações.</span>
+        <span data-lang="es"><span class="em">Construyendo productos</span> en servicios financieros y operaciones.</span>
+      </div>
+    </div>
+    <div class="stat fade-up">
+      <div class="stat-num">3<span class="gold-acc">×</span></div>
+      <div class="stat-label">
+        <span data-lang="en" class="lang-active"><span class="em">Languages fluent</span> — Portuguese, English, Spanish. Passports: BR · US · IT.</span>
+        <span data-lang="pt"><span class="em">Idiomas fluentes</span> — Português, Inglês, Espanhol. Passaportes: BR · US · IT.</span>
+        <span data-lang="es"><span class="em">Idiomas con fluidez</span> — Portugués, Inglés, Español. Pasaportes: BR · US · IT.</span>
+      </div>
+    </div>
+    <div class="stat fade-up">
+      <div class="stat-num">200<span class="small">+</span></div>
+      <div class="stat-label">
+        <span data-lang="en" class="lang-active"><span class="em">Countries and territories</span> served by the Visa network I now help build.</span>
+        <span data-lang="pt"><span class="em">Países e territórios</span> atendidos pela rede Visa que agora ajudo a construir.</span>
+        <span data-lang="es"><span class="em">Países y territorios</span> atendidos por la red Visa que ahora ayudo a construir.</span>
+      </div>
+    </div>
+    <div class="stat fade-up">
+      <div class="stat-num">$<span class="accent">1M</span><span class="small">+</span></div>
+      <div class="stat-label">
+        <span data-lang="en" class="lang-active"><span class="em">Internal development cost avoided</span> by influencing vendor prioritization on one FX product issue.</span>
+        <span data-lang="pt"><span class="em">Custo de desenvolvimento evitado</span> ao influenciar a priorização de fornecedor em um produto cambial.</span>
+        <span data-lang="es"><span class="em">Costo de desarrollo evitado</span> al influir en la priorización del proveedor en un producto cambial.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== QUOTE ====================== -->
+<section class="quote-section">
+  <div class="quote-monogram" aria-hidden="true">L</div>
+  <div class="quote-inner">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">
+      <span data-lang="en" class="lang-active">Do it because your kids deserve a <span class="italic-crimson">mother they can brag about.</span></span>
+      <span data-lang="pt">Faça isso porque seus filhos merecem uma <span class="italic-crimson">mãe da qual possam se orgulhar.</span></span>
+      <span data-lang="es">Hazlo porque tus hijos merecen una <span class="italic-crimson">madre de la que puedan presumir.</span></span>
+    </p>
+    <div class="quote-attribution">
+      <span data-lang="en" class="lang-active">The line in her bio. The line behind the work.</span>
+      <span data-lang="pt">A frase no perfil. A frase por trás do trabalho.</span>
+      <span data-lang="es">La frase en el perfil. La frase detrás del trabajo.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FOCUS ====================== -->
+<section class="focus" id="focus">
+  <div class="container">
+    <div class="section-head">
+      <span class="num">02</span>
+      <span class="tag">
+        <span data-lang="en" class="lang-active">Focus</span>
+        <span data-lang="pt">Foco</span>
+        <span data-lang="es">Enfoque</span>
+      </span>
+      <span class="line"></span>
+    </div>
+    <h2 class="section-title">
+      <span data-lang="en" class="lang-active">Where the <span class="italic">attention</span> lives.</span>
+      <span data-lang="pt">Onde mora a <span class="italic">atenção</span>.</span>
+      <span data-lang="es">Dónde vive la <span class="italic">atención</span>.</span>
+    </h2>
+
+    <div class="focus-grid" style="margin-top: 4rem;">
+      <div class="focus-item">
+        <div class="focus-item-num">01 — Cards</div>
+        <h3>
+          <span data-lang="en" class="lang-active">Commercial cards &amp; <span class="italic">multinational programs</span></span>
+          <span data-lang="pt">Cartões corporativos &amp; <span class="italic">programas multinacionais</span></span>
+          <span data-lang="es">Tarjetas corporativas &amp; <span class="italic">programas multinacionales</span></span>
+        </h3>
+        <p>
+          <span data-lang="en" class="lang-active">Card products for global corporations spending across dozens of currencies, jurisdictions, and reporting regimes. Where program design, regulatory alignment, and client experience converge.</span>
+          <span data-lang="pt">Produtos de cartão para corporações globais que gastam em dezenas de moedas, jurisdições e regimes regulatórios. Onde design de programa, compliance regulatório e experiência do cliente convergem.</span>
+          <span data-lang="es">Productos de tarjetas para corporaciones globales que gastan en docenas de monedas, jurisdicciones y marcos regulatorios. Donde convergen el diseño de programa, el cumplimiento regulatorio y la experiencia del cliente.</span>
+        </p>
+        <div class="focus-tag"><span class="gold-dot"></span>Visa · Multinational Program</div>
+      </div>
+
+      <div class="focus-item">
+        <div class="focus-item-num">02 — Rails</div>
+        <h3>
+          <span data-lang="en" class="lang-active">Cross-border <span class="italic">payments</span> &amp; FX</span>
+          <span data-lang="pt">Pagamentos <span class="italic">transfronteiriços</span> &amp; câmbio</span>
+          <span data-lang="es">Pagos <span class="italic">transfronterizos</span> &amp; cambio</span>
+        </h3>
+        <p>
+          <span data-lang="en" class="lang-active">B2B payment rails, FX product strategy, and the operational machinery — vendor partnerships, SLAs, compliance controls — that determines whether money actually arrives.</span>
+          <span data-lang="pt">Trilhos de pagamento B2B, estratégia de produto cambial e a engrenagem operacional — parcerias com fornecedores, SLAs, controles de compliance — que determina se o dinheiro realmente chega.</span>
+          <span data-lang="es">Rieles de pago B2B, estrategia de producto cambial y la maquinaria operativa — alianzas con proveedores, SLAs, controles de cumplimiento — que determina si el dinero realmente llega.</span>
+        </p>
+        <div class="focus-tag"><span class="gold-dot"></span>AutoFX · FX Receivables</div>
+      </div>
+
+      <div class="focus-item">
+        <div class="focus-item-num">03 — AI</div>
+        <h3>
+          <span data-lang="en" class="lang-active">AI in <span class="italic">financial services</span></span>
+          <span data-lang="pt">IA em <span class="italic">serviços financeiros</span></span>
+          <span data-lang="es">IA en <span class="italic">servicios financieros</span></span>
+        </h3>
+        <p>
+          <span data-lang="en" class="lang-active">Generative AI as a tool to sharpen decisions, not replace judgment. Gen AI Ambassador at Visa. Graduate of MIT Sloan's executive program on AI &amp; business strategy.</span>
+          <span data-lang="pt">IA generativa como ferramenta para afiar decisões, não substituir o julgamento. Gen AI Ambassador na Visa. Concluí o programa executivo do MIT Sloan sobre IA e estratégia de negócios.</span>
+          <span data-lang="es">IA generativa como herramienta para afinar decisiones, no para reemplazar el juicio. Gen AI Ambassador en Visa. Graduada del programa ejecutivo del MIT Sloan sobre IA y estrategia de negocios.</span>
+        </p>
+        <div class="focus-tag"><span class="gold-dot"></span>MIT Sloan · Pendo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== GALLERY ====================== -->
+<section class="gallery">
+  <div class="gallery-row">
+    <div class="gallery-tile nyc">
+      <div class="photo-bg"></div>
+      <div class="gallery-caption">
+        <span class="title">
+          <span data-lang="en" class="lang-active">In New York.</span>
+          <span data-lang="pt">Em Nova York.</span>
+          <span data-lang="es">En Nueva York.</span>
+        </span>
+        <span class="meta">Visa Office · NYC</span>
+      </div>
+    </div>
+    <div class="gallery-tile chamonix">
+      <div class="photo-bg"></div>
+      <div class="gallery-caption">
+        <span class="title">
+          <span data-lang="en" class="lang-active">In the Alps.</span>
+          <span data-lang="pt">Nos Alpes.</span>
+          <span data-lang="es">En los Alpes.</span>
+        </span>
+        <span class="meta">Chamonix · France</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== WRITING ====================== -->
+<section class="writing" id="writing">
+  <div class="container">
+    <div class="writing-head-row">
+      <div>
+        <div class="section-head">
+          <span class="num">03</span>
+          <span class="tag">
+            <span data-lang="en" class="lang-active">Writing</span>
+            <span data-lang="pt">Escritos</span>
+            <span data-lang="es">Escritos</span>
+          </span>
+          <span class="line"></span>
+        </div>
+        <h2 class="section-title">
+          <span data-lang="en" class="lang-active">Selected <span class="italic">notes.</span></span>
+          <span data-lang="pt">Notas <span class="italic">selecionadas</span>.</span>
+          <span data-lang="es">Notas <span class="italic">seleccionadas</span>.</span>
+        </h2>
+      </div>
+      <p class="writing-sub">
+        <span data-lang="en" class="lang-active">Short pieces on the work, the tools, and the partnerships shaping global payments.</span>
+        <span data-lang="pt">Textos curtos sobre o trabalho, as ferramentas e as parcerias que moldam os pagamentos globais.</span>
+        <span data-lang="es">Textos cortos sobre el trabajo, las herramientas y las alianzas que dan forma a los pagos globales.</span>
+      </p>
+    </div>
+
+    <ul class="writing-list">
+      <li>
+        <a href="https://www.linkedin.com/in/lygia-friend-959064a4/recent-activity/all/" target="_blank" rel="noopener">
+          <span class="writing-date">2026 · 05</span>
+          <span class="writing-title">
+            <span data-lang="en" class="lang-active">Earning my <span class="italic">Gen AI Ambassador</span> certification at Visa</span>
+            <span data-lang="pt">Conquistando minha certificação <span class="italic">Gen AI Ambassador</span> na Visa</span>
+            <span data-lang="es">Obteniendo mi certificación <span class="italic">Gen AI Ambassador</span> en Visa</span>
+          </span>
+          <span class="writing-tag">AI</span>
+          <span class="writing-arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/lygia-friend-959064a4/recent-activity/all/" target="_blank" rel="noopener">
+          <span class="writing-date">2026 · 04</span>
+          <span class="writing-title">
+            <span data-lang="en" class="lang-active">Completing <span class="italic">MIT Sloan's</span> AI &amp; Business Strategy program</span>
+            <span data-lang="pt">Concluindo o programa de <span class="italic">IA e Estratégia</span> do MIT Sloan</span>
+            <span data-lang="es">Completando el programa de <span class="italic">IA y Estrategia</span> del MIT Sloan</span>
+          </span>
+          <span class="writing-tag">Education</span>
+          <span class="writing-arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/lygia-friend-959064a4/recent-activity/all/" target="_blank" rel="noopener">
+          <span class="writing-date">2026 · 04</span>
+          <span class="writing-title">
+            <span data-lang="en" class="lang-active">On the deepening <span class="italic">Visa × Ramp</span> partnership</span>
+            <span data-lang="pt">Sobre o aprofundamento da parceria <span class="italic">Visa × Ramp</span></span>
+            <span data-lang="es">Sobre la profundización de la alianza <span class="italic">Visa × Ramp</span></span>
+          </span>
+          <span class="writing-tag">Partnerships</span>
+          <span class="writing-arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/lygia-friend-959064a4/recent-activity/all/" target="_blank" rel="noopener">
+          <span class="writing-date">2026 · 02</span>
+          <span class="writing-title">
+            <span data-lang="en" class="lang-active">A handshake, not a transaction: <span class="italic">how to actually use AI</span></span>
+            <span data-lang="pt">Um aperto de mãos, não uma transação: <span class="italic">como usar IA de verdade</span></span>
+            <span data-lang="es">Un apretón de manos, no una transacción: <span class="italic">cómo usar la IA de verdad</span></span>
+          </span>
+          <span class="writing-tag">AI</span>
+          <span class="writing-arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/lygia-friend-959064a4/recent-activity/all/" target="_blank" rel="noopener">
+          <span class="writing-date">2025 · 11</span>
+          <span class="writing-title">
+            <span data-lang="en" class="lang-active">Joining <span class="italic">Visa</span>: connecting people, businesses, and opportunities</span>
+            <span data-lang="pt">Chegando à <span class="italic">Visa</span>: conectando pessoas, empresas e oportunidades</span>
+            <span data-lang="es">Llegando a <span class="italic">Visa</span>: conectando personas, empresas y oportunidades</span>
+          </span>
+          <span class="writing-tag">Career</span>
+          <span class="writing-arrow">→</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== CONTACT ====================== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>
+      <span data-lang="en" class="lang-active">Let's <span class="italic-crimson">connect</span>.</span>
+      <span data-lang="pt">Vamos nos <span class="italic-crimson">conectar</span>.</span>
+      <span data-lang="es">Pongámonos en <span class="italic-crimson">contacto</span>.</span>
+    </h2>
+    <a href="https://www.linkedin.com/in/lygia-friend-959064a4/" target="_blank" rel="noopener" class="contact-link">
+      <span>LinkedIn</span>
+      <span class="arrow">↗</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-meta">
+    <span>© LF · 2026</span>
+    <span><span class="footer-flag">BR</span> · US · IT</span>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/lygia-friend-959064a4/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="#about">
+      <span data-lang="en" class="lang-active">About</span>
+      <span data-lang="pt">Sobre</span>
+      <span data-lang="es">Sobre</span>
+    </a>
+    <a href="#writing">
+      <span data-lang="en" class="lang-active">Writing</span>
+      <span data-lang="pt">Escritos</span>
+      <span data-lang="es">Escritos</span>
+    </a>
+  </div>
+</footer>
+
+<script>
+  // Language toggle
+  const langButtons = document.querySelectorAll('[data-set-lang]');
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.setLang;
+      langButtons.forEach(b => b.classList.toggle('active', b.dataset.setLang === lang));
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.classList.toggle('lang-active', el.dataset.lang === lang);
+      });
+      document.documentElement.lang = lang;
+      try { localStorage.setItem('lf-lang', lang); } catch(e) {}
+    });
+  });
+
+  try {
+    const saved = localStorage.getItem('lf-lang');
+    if (saved && ['en', 'pt', 'es'].includes(saved)) {
+      const btn = document.querySelector(`[data-set-lang="${saved}"]`);
+      if (btn) btn.click();
+    }
+  } catch(e) {}
+
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 8);
+  }, { passive: true });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  document.querySelectorAll('.about-grid > *, .focus-item, .writing-list li, .stat, .gallery-tile').forEach(el => {
+    if (!el.classList.contains('fade-up')) {
+      el.classList.add('fade-up');
+      observer.observe(el);
+    }
+  });
+</script>
+
+</body>
+</html>
